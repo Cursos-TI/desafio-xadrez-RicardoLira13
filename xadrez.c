@@ -65,7 +65,7 @@ int main(){
 		
 	}while(cavalo <= 1);
 
-   printf("\n");
+   printf("\n\n");
 
 	return 0;
 } 
