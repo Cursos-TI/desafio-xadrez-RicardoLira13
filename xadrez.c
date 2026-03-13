@@ -1,64 +1,71 @@
 #include <stdio.h>
 
+//função recursiva do movimento da torre	
+void movimentoTorre(int numeroMovimentos){
+	if(numeroMovimentos <= 5){
+		printf("Movimento %d - Direita\n", numeroMovimentos);
+		
+		movimentoTorre(numeroMovimentos + 1);
+	}
+}//<-- Fim da função	
+
+
+//função recursiva do movimento do Bispo
+void movimentoBispo(int numeroMovimentos){
+	if(numeroMovimentos <= 5){
+		printf("Movimento %d - Cima/Direita\n", numeroMovimentos);
+		
+		movimentoBispo(numeroMovimentos + 1);	
+	}
+}//<-- Fim da função
+
+
+//função recursiva do movimento da Rainha
+void movimentoRainha(int numeroMovimentos){
+	if(numeroMovimentos <= 8){
+		printf("Movimento %d - Cima/Direita\n", numeroMovimentos);
+		
+		movimentoRainha(numeroMovimentos + 1);
+	}
+}//<-- Fim da função
+		
 int main(){
 	
-	//declaração das variaveis das peças	
-	int torre, bispo = 1, rainha = 1;
+	int torre = 1;
+	int bispo = 1;
+	int rainha = 1;
 	
-	//movimento da torre
-	printf("*Movimentação da Torre*\n\n");
-
-	//movimento da torre usando FOR
-	for(torre = 1; torre <= 5; torre++){
-		printf("Movimento %d - Direita\n", torre);
-	}
-
+	printf("*Movimentos da Torre*\n\n");
+	movimentoTorre(torre);
+	
+	printf("-----------------------\n");
+	
+	printf("*Movimentos do Bispo*\n\n");
+	movimentoBispo(bispo);
+	
 	printf("-----------------------\n");
 
-	//movimentação do bispo
-	printf("*Movimentação do Bispo*\n\n");
+	printf("*Movimentos da Rainha*\n\n");
+	movimentoRainha(rainha);
 
-	//movimento do bispo usando WHILE
-	while(bispo <= 5){
-		printf("Movimento %d - Cima/Direita\n", bispo);
-		
-		bispo++;
-	}
+    printf("-----------------------\n");
 
-	printf("-----------------------\n");
+	printf("*Movimentos do Cavalo*\n\n");
 
-	//movimentação da rainha
-	printf("*Movimentação da Rainha*\n\n");
+    //movimento do cavalo
+    int cavalo = 1;
 
-	//movimentação da rainha usando DO WHILE
-	do{
-		printf("Movimento %d - Esquerda\n", rainha);
-		
-		rainha++;
-		
-	}while(rainha <= 8);
-
-	printf("-----------------------\n");
-
-	//Movimentação do Cavalo 
-	printf("*Movimentação do Cavalo*\n\n");
-	
-	//Declaração da variavel de controle DO WHILE
-	int cavalo = 1;
-	
-	//DO WHILE
-	do{
-		//FOR
-		for(int i = 1; i <= 2; i++){
-			printf("Movimento %d - Baixo\n", i);
-		} //<-- Fim do FOR
-		
-		printf("Movimento 3 - Esquerda\n");
+   do{
+        //for com mais de uma variavel declarada
+		for(int i = 1, j = 3; i <= j; i++, j--){
+			printf("Movimento %d: Cima!\n", i);
+		} 
+		printf("Movimento 3: Direita!\n");
 		cavalo++;
 		
 	}while(cavalo <= 1);
 
-	printf("\n");
+   printf("\n\n\n");
 
 	return 0;
-}
+} 
